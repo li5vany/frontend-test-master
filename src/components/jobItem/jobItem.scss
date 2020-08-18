@@ -1,0 +1,148 @@
+@import "../../variables";
+
+.job-item {
+ padding: 30px;
+ margin: 15px 0;
+ height: max-content;
+ min-height: 100px;
+ display: flex;
+ flex-direction: row;
+ box-shadow: 0 10px 15px rgba(99, 186, 188, 0.25);
+ border-radius: 6px;
+ background-color: white;
+ cursor: pointer;
+
+ img {
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+ }
+
+ .company-description {
+  margin-left: 30px;
+  color: black;
+
+  .company-name {
+   font-weight: 600;
+   display: inline-block;
+   margin-right: 10px;
+   margin-bottom: 4px;
+  }
+
+  .new,
+  .featured {
+   display: inline-block;
+   line-height: 1;
+   color: #fff;
+   padding: 6px;
+   font-weight: 600;
+   border-radius: 15px;
+   text-transform: uppercase;
+   font-size: 12px;
+   margin-bottom: 4px;
+  }
+
+  .new {
+   background-color: $colorPrimary;
+   margin-right: 4px;
+  }
+
+  .featured {
+   background-color: #3a4445;
+  }
+
+  .position {
+   font-size: 18px;
+  }
+
+  .detail {
+   font-size: 16px;
+
+   .dot:before {
+    content: '•';
+    padding: 5px;
+   }
+
+  }
+
+ }
+
+ .tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-content: center;
+
+  > * {
+   display: inline-block;
+   line-height: 1;
+   padding: 10px;
+   font-weight: 700;
+   border-radius: 6px;
+   font-size: 14px;
+   background-color: $colorNeutralBackground;
+   color: $colorPrimary;
+   margin-right: 15px;
+   margin-bottom: 10px;
+  }
+
+  > *:last-child {
+   margin-right: 0;
+  }
+
+  > *:hover,
+  > *:active,
+  > *:focus,
+  > *:visited,
+  > *.active {
+   color: $colorNeutralBackground;
+   background-color: $colorPrimary;
+  }
+
+ }
+
+}
+
+.job-item:focus,
+.job-item:active,
+.job-item:visited,
+.job-item:hover {
+ border-left: 5px solid $colorPrimary;
+ padding-left: 25px;
+
+ .position {
+  color: $colorPrimary;
+ }
+}
+
+@media (max-width: 375px) {
+ .job-item {
+  flex-direction: column;
+
+ img {
+  width: 44px;
+  height: 44px;
+  margin-top: -50px;
+  align-self: start;
+ }
+
+  .company-description {
+   margin-left: 0;
+   margin-top: 10px;
+  }
+
+  .separator {
+   border-bottom: 1px solid #c3c6c5;
+   margin: 20px 0;
+  }
+
+  .tags {
+   justify-content: flex-start;
+  }
+
+ }
+
+}

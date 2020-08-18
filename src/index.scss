@@ -1,0 +1,23 @@
+@import "variables.scss";
+
+@font-face {
+  font-family: 'Spartan';
+  src: url('/resources/Fonts/Spartan/Spartan-VariableFont_wght.ttf') format("truetype-variations");
+  font-weight: 500;
+  font-stretch: 0% 100%;
+}
+
+body {
+  font-family: 'Spartan', sans-serif;
+  background-color: $colorNeutralBackground;
+  font-size: 15px;
+  margin: 0;
+}
+
+.primary-color {
+  color: $colorPrimary;
+}
+
+.secondary-color {
+  color: #979d9d;
+}

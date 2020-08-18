@@ -1,0 +1,87 @@
+@import "../../variables";
+
+.job-list {
+ display: flex;
+ flex-direction: column;
+ flex-flow: column;
+ align-content: center;
+}
+
+.filter-list {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: flex-start;
+ flex-grow: 1;
+ background-color: white;
+ padding: 20px 30px;
+ position: relative;
+ top: -34px;
+ border-radius: 6px;
+ flex-wrap: wrap;
+ min-height: 50px;
+
+ > * {
+  margin-right: 15px;
+  margin-bottom: 10px;
+
+  .filter-item {
+   display: inline-block;
+   line-height: 1;
+   padding: 10px;
+   font-weight: 700;
+   border-top-left-radius: 6px;
+   border-bottom-left-radius: 6px;
+   font-size: 14px;
+   background-color: $colorNeutralBackground;
+   color: $colorPrimary;
+
+  }
+
+   button {
+    color: white;
+    cursor: pointer;
+    background-color: $colorPrimary;
+    border: 0;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-size: 32px;
+    position: relative;
+    top: 6px;
+    outline: none;
+   }
+
+   button:active,
+   button:focus,
+   button:visited,
+   button:hover {
+    background-color: #3a4445;
+   }
+
+ }
+
+ > *:last-child {
+  margin-right: 0;
+ }
+
+ .clear {
+  color: #828b8a;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  position: absolute;
+  right: 30px;
+ }
+
+ .clear:visited,
+ .clear:focus,
+ .clear:active,
+ .clear:hover {
+  text-decoration-line: underline;
+  color: $colorPrimary;
+ }
+
+}

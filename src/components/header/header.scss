@@ -1,0 +1,9 @@
+@import "../../variables";
+
+header {
+ background: url("../../resources/images/bg-header-desktop.svg") no-repeat;
+ background-color: $colorPrimary;
+ min-height: 118px;
+ background-position: right;
+ background-size: cover;
+}
