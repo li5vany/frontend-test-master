@@ -2,7 +2,7 @@
   "name": "frontend-test-master",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://li5vany.github.io/frontend-test-master",
+  "homepage": "https://li5vany.github.io/frontend-test-master/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
