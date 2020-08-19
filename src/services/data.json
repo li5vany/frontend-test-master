@@ -1,5 +1,18 @@
 [
   {
+    "id": "f48b1be0-63b7-41c5-83eb-212c13505f0c",
+    "type": "Full Time",
+    "url": "https://jobs.github.com/positions/f48b1be0-63b7-41c5-83eb-212c13505f0c",
+    "created_at": "Wed Aug 19 14:48:26 UTC 2020",
+    "company": "Ovjerjet",
+    "company_url": "http://www.overjet.ai",
+    "location": "Boston",
+    "title": "Senior Software Engineer",
+    "description": "<p>At Overjet, we are building applications that improve healthcare, dentistry in particular, by leaps and bounds. We are solving the most challenging problems in dentistry to improve care for millions of patients. Come join us as a senior software/full-stack/backend engineer and be an integral part of an exceptional team.</p>↵<p>Responsibilities:</p>↵<ul>↵<li>Develop Java Spring based backend applications for SaaS products</li>↵<li>Architect and implement scalable databases</li>↵<li>Enhance quality, usability, performance, security, reliability as well as feature-set</li>↵<li>Design, code, test, maintain, monitor, troubleshoot ... well, you get the gist</li>↵<li>Collaborate with other teams to prioritize tasks and deliver results on time</li>↵<li>Integrate external applications ensuring security and reliability are at the forefront</li>↵<li>Support ad-hoc POCs, demos, mockups, etc.</li>↵<li>Create utilities for automating in-house tasks</li>↵</ul>↵<p>Required skills:</p>↵<ul>↵<li>10+ years' experience building backend applications</li>↵<li>5+ years' experience in cloud stack - GCP, AWS, Azure</li>↵<li>Expertise in Java and Java Spring frameworks</li>↵<li>Proficiency in both SQL as well as NoSQL databases</li>↵<li>Advanced knowledge of REST APIs</li>↵<li>Advanced knowledge of Pub sub mechanisms</li>↵<li>Advanced knowledge of Docker and Kubernetes</li>↵<li>Excellent work ethics and drive to succeed</li>↵</ul>↵<p>Preferred skills:</p>↵<ul>↵<li>Experience building Python frameworks, including Flask and/or Django</li>↵<li>Grasp of GraphQL frameworks, especially SPQR</li>↵<li>Implementation experience on Near Real time systems</li>↵<li>Familiarity with Google Cloud Platform</li>↵<li>Familiarity with IaaS</li>↵<li>Work experience in healthcare domain a plus</li>↵<li>Knowledge of automation testing frameworks</li>↵</ul>↵",
+    "how_to_apply": "<p>Apply at <a href=\"https://jobs.lever.co/overjet/f6da298b-44a6-4085-960e-d980ac7644f1\">https://jobs.lever.co/overjet/f6da298b-44a6-4085-960e-d980ac7644f1</a></p>",
+    "company_logo": "https://jobs.github.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbkdJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ed86585a72c77fbecd376ea56bf7453189c0fb1e/Logo_Color_lowres.jpg"
+  },
+  {
     "id": 1,
     "company": "Photosnap",
     "logo": "./images/photosnap.svg",
