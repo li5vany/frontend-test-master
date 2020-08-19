@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {jobService} from "../../services";
 import JobItem from "../jobItem";
 import './jobList.scss'
+import JobDetail from "../jobDetail";
 
 const JobList = () => {
 
@@ -9,6 +10,7 @@ const JobList = () => {
   const [location, setLocation] = useState("");
   const [isFullTime, setIsFullTime] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
+  const [detailIdView, setDetailIdView] = useState('');
   const [jobs, setJobs] = useState([]);
 
   const getJobs = () => {
@@ -33,42 +35,62 @@ const JobList = () => {
   return (
     <div>
       <div className="filter-list">
-        <div>
-          <label>Job Description</label>
-          <input type="text" placeholder="Job Description" value={description} onChange={e => {
-            setDescription(e.target.value)
-          }}/>
-        </div>
-        <div>
-          <label>Location</label>
-          <input type="text" placeholder="Location" value={location} onChange={e => {
-            setLocation(e.target.value)
-          }}/>
-        </div>
-        <div>
-          <label className="cursor-pointer">
-            <input type="checkbox" placeholder="Full Time Only" checked={isFullTime} onChange={() => {
-              setIsFullTime(!isFullTime)
+        {!detailIdView && <>
+          <div>
+            <label>Job Description</label>
+            <input type="text" placeholder="Job Description" value={description} onChange={e => {
+              setDescription(e.target.value)
             }}/>
-            Full Time Only
-          </label>
-        </div>
-        <div>
-          <button onClick={() => {getJobs()}} disabled={isFetching}>Search {isFetching ? "..." : ""}</button>
-        </div>
-        {(description || location || isFullTime) &&
-        <div className="clear" onClick={() => {
-          setDescription("");
-          setLocation("");
-          setIsFullTime(false);
-          getJobs();
-        }}>Clear</div>}
+          </div>
+          <div>
+            <label>Location</label>
+            <input type="text" placeholder="Location" value={location} onChange={e => {
+              setLocation(e.target.value)
+            }}/>
+          </div>
+          <div>
+            <label className="cursor-pointer">
+              <input type="checkbox" placeholder="Full Time Only" checked={isFullTime} onChange={() => {
+                setIsFullTime(!isFullTime)
+              }}/>
+              Full Time Only
+            </label>
+          </div>
+          <div>
+            <button onClick={() => {
+              getJobs()
+            }} disabled={isFetching}>Search {isFetching ? "..." : ""}</button>
+          </div>
+          {(description || location || isFullTime) &&
+          <div className="clear" onClick={() => {
+            setDescription("");
+            setLocation("");
+            setIsFullTime(false);
+            getJobs();
+          }}>Clear</div>}
+        </>}
+
+        {detailIdView && <>
+          <div className="primary-color">Find another option here</div>
+          {jobs.map((job, index) => (
+            <span className="badge" key={index} onClick={() => {
+              setDetailIdView(job.id)
+            }}>
+            {job.title} [{job.company}]
+          </span>
+          ))}
+        </>}
+
       </div>
-      <div className="job-list">
+
+      {!detailIdView && <div className="job-list">
         {jobs.map((job, index) => (
-          <JobItem key={index} job={job}/>
+          <JobItem key={index} job={job} setDetailIdView={setDetailIdView}/>
         ))}
-      </div>
+      </div>}
+
+      {detailIdView && <JobDetail id={detailIdView}/>}
+
     </div>
   )
 
