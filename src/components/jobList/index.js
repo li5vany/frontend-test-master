@@ -5,61 +5,69 @@ import './jobList.scss'
 
 const JobList = () => {
 
-  const [filter, setFilter] = useState([]);
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [isFullTime, setIsFullTime] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
   const [jobs, setJobs] = useState([]);
 
+  const getJobs = () => {
+    setIsFetching(true);
+    jobService().getJobs({description, location, isFullTime})
+      .then(res => {
+        setIsFetching(false);
+        if (res && res.data) {
+          setJobs(res.data);
+        }
+      })
+      .catch(error => {
+        setIsFetching(false);
+        setJobs([]);
+      });
+  };
+
   useEffect(() => {
-    setJobs(jobService().getJobs());
+    getJobs()
   }, [setJobs]);
-
-  const handleFilter = (value) => {
-    const index = filter.indexOf(value);
-    let tmp = [...filter];
-    if (index !== -1) {
-      tmp.splice(index, 1);
-    }
-
-    setFilter(tmp)
-  };
-
-  let jobItems = [];
-
-  const checkFilter = (job) => {
-    if (filter.length === 0) {
-      return true
-    }
-
-    const array = [job.role, job.level, ...job.languages, ...job.tools];
-
-    for (let i in filter) {
-      if (filter.hasOwnProperty(i) && array.some(tag => tag.toLowerCase() === filter[i].toLowerCase())) {
-        return true
-      }
-    }
-    return false;
-  };
-
-  for (let i in jobs) {
-    if (jobs.hasOwnProperty(i) && checkFilter(jobs[i])) {
-      jobItems.push(
-        <JobItem key={i} job={jobs[i]} filter={filter} setFilter={setFilter}/>
-      )
-    }
-  }
 
   return (
     <div>
       <div className="filter-list">
-        {filter.map((f, index) => (
-          <div key={index}>
-            <div className="filter-item">{f}</div>
-            <button onClick={() => handleFilter(f)}>×</button>
-          </div>
-        ))}
-        {filter.length > 0 ? <div className="clear" onClick={() => {setFilter([])}}>Clear</div> : <div className="primary-color">You can select the tags to filter this list</div>}
+        <div>
+          <label>Job Description</label>
+          <input type="text" placeholder="Job Description" value={description} onChange={e => {
+            setDescription(e.target.value)
+          }}/>
+        </div>
+        <div>
+          <label>Location</label>
+          <input type="text" placeholder="Location" value={location} onChange={e => {
+            setLocation(e.target.value)
+          }}/>
+        </div>
+        <div>
+          <label className="cursor-pointer">
+            <input type="checkbox" placeholder="Full Time Only" checked={isFullTime} onChange={() => {
+              setIsFullTime(!isFullTime)
+            }}/>
+            Full Time Only
+          </label>
+        </div>
+        <div>
+          <button onClick={() => {getJobs()}} disabled={isFetching}>Search {isFetching ? "..." : ""}</button>
+        </div>
+        {(description || location || isFullTime) &&
+        <div className="clear" onClick={() => {
+          setDescription("");
+          setLocation("");
+          setIsFullTime(false);
+          getJobs();
+        }}>Clear</div>}
       </div>
       <div className="job-list">
-        {jobItems}
+        {jobs.map((job, index) => (
+          <JobItem key={index} job={job}/>
+        ))}
       </div>
     </div>
   )

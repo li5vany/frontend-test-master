@@ -22,49 +22,27 @@
  min-height: 50px;
  box-shadow: 0 10px 15px rgba(99, 186, 188, 0.25);
 
- > * {
-  margin-right: 15px;
-  margin-bottom: 10px;
-
-  .filter-item {
-   display: inline-block;
-   line-height: 1;
-   padding: 10px;
-   font-weight: 700;
-   border-top-left-radius: 6px;
-   border-bottom-left-radius: 6px;
-   font-size: 14px;
-   background-color: $colorNeutralBackground;
-   color: $colorPrimary;
-
-  }
-
-   button {
-    color: white;
-    cursor: pointer;
-    background-color: $colorPrimary;
-    border: 0;
-    line-height: 1;
-    text-shadow: 0 1px 0 #fff;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    font-size: 32px;
-    position: relative;
-    top: 6px;
-    outline: none;
-   }
-
-   button:active,
-   button:focus,
-   button:visited,
-   button:hover {
-    background-color: #3a4445;
-   }
-
+ input {
+  padding: 6px 8px;
+  margin: 0 10px;
+  box-shadow: 0 10px 15px rgba(99, 186, 188, 0.25);
+  border-radius: 6px;
+  background-color: white;
+  border: 1px solid $colorPrimary;
+  outline: none;
  }
 
- > *:last-child {
-  margin-right: 0;
+ button {
+  color: #fff;
+  padding: 10px;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 12px;
+  background-color: $colorPrimary;
+  border: none;
+  outline: none;
+  margin: 0 10px;
+  cursor: pointer;
  }
 
  .clear {
