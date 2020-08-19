@@ -22,14 +22,28 @@
  min-height: 50px;
  box-shadow: 0 10px 15px rgba(99, 186, 188, 0.25);
 
+ > * {
+  margin-right: 20px;
+  margin-bottom: 10px;
+
+  > *:first-child {
+   margin-right: 10px;
+  }
+
+ }
+
  input {
   padding: 6px 8px;
-  margin: 0 10px;
+  margin: 0;
   box-shadow: 0 10px 15px rgba(99, 186, 188, 0.25);
   border-radius: 6px;
   background-color: white;
   border: 1px solid $colorPrimary;
   outline: none;
+ }
+
+ input[type=checkbox] {
+  margin-right: 10px;
  }
 
  button {
@@ -41,7 +55,6 @@
   background-color: $colorPrimary;
   border: none;
   outline: none;
-  margin: 0 10px;
   cursor: pointer;
  }
 
@@ -61,6 +74,23 @@
  .clear:hover {
   text-decoration-line: underline;
   color: $colorPrimary;
+ }
+
+}
+
+@media (max-width: 375px) {
+ .filter-list {
+  padding-right: 0;
+  padding-left: 10px;
+
+  > * {
+   display: flex;
+  }
+
+  .clear {
+   position: initial;
+  }
+
  }
 
 }
